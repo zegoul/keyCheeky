@@ -1,4 +1,1 @@
 # keyCheeky
-
-ADITYA
-KSHITIJ
