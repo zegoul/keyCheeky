@@ -1,29 +1,145 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Password Manager | Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KeyCheeky | Password Manager</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>KeyCheeky</h1>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="/keyCheeky/Frontend/Art/logo.png" alt="KeyCheeky Logo"
+        /></a>
+      </div>
+      <div class="title"><h1>KeyCheeky</h1></div>
+      <nav class="nav">
+        <a href="index.html" class="active">Home</a>
+        <!-- <a href="about.html">About</a> -->
         <a href="premium.html">Premium</a>
-        <a href="login.html">Login</a>
-        <a href="signup.html">Sign Up</a>
+        <a href="signup.html">Get Started</a>
       </nav>
     </header>
 
-    <div class="container">
-      <h2>Welcome to KeyCheeky</h2>
-      <p>
-        Store, encrypt, and manage all your passwords securely in one place.
-      </p>
-      <button onclick="location.href='login.html'">Get Started</button>
-    </div>
+    <main>
+      <section class="hero">
+        <h2>Welcome to KeyCheeky</h2>
+        <p>
+          KeyCheeky is a simple yet secure Password Management System designed
+          to store and protect users’ passwords efficiently.
+        </p>
+        <p>
+          The platform allows users to save, view, edit, and delete their
+          account credentials safely using an encrypted database handled through
+          a C backend.
+        </p>
+        <a href="signup.html" class="btn-primary">Get Started</a>
+      </section>
 
-    <footer>© 2025 KeyCheeky. All rights reserved.</footer>
+      <section class="about">
+        <h2>About KeyCheeky</h2>
+        <p>
+          Our goal is to help users manage all their passwords in one place
+          without compromising on privacy or usability. With an intuitive
+          interface and reliable encryption logic, KeyCheeky ensures that your
+          passwords stay safe — and only you have access to them.
+        </p>
+        <p>
+          Future upgrades aim to include multi-user support, two-factor
+          authentication, and mobile/desktop app versions for greater
+          flexibility.
+        </p>
+      </section>
+
+      <section class="team">
+        <h2>Meet Our Team</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <h3>Mohit Aswani</h3>
+            <p><strong>Role:</strong> Group Leader + UI Designer</p>
+            <p>
+              Mohit is the creative mind and leader of the SecurePass project.
+              He specializes in front-end design, ensuring the interface is
+              clean, secure, and easy to use.
+            </p>
+            <p>
+              <a href="https://github.com/mohitaswani">GitHub</a> |
+              <a href="https://linkedin.com/in/mohitaswani">LinkedIn</a> |
+              <a href="https://instagram.com/mohit_aswani">Instagram</a>
+            </p>
+          </div>
+
+          <div class="team-card">
+            <h3>Lakshay Battu</h3>
+            <p><strong>Role:</strong> Programmer + Documentation Lead</p>
+            <p>
+              Lakshay handles both coding and documentation for SecurePass. His
+              main focus is on integrating the frontend with the C backend
+              securely and efficiently.
+            </p>
+            <p>
+              <a href="https://github.com/lakshaybattu">GitHub</a> |
+              <a href="https://linkedin.com/in/lakshaybattu">LinkedIn</a> |
+              <a href="https://instagram.com/lakshay_battu">Instagram</a>
+            </p>
+          </div>
+
+          <div class="team-card">
+            <h3>Aditya Choudhary</h3>
+            <p><strong>Role:</strong> Programmer + Documentation</p>
+            <p>
+              Aditya contributes to backend programming and helps maintain the
+              technical documentation. He focuses on encryption and secure
+              password management.
+            </p>
+            <p>
+              <a href="https://github.com/adityachoudhary">GitHub</a> |
+              <a href="https://linkedin.com/in/adityachoudhary">LinkedIn</a> |
+              <a href="https://instagram.com/aditya_choudhary">Instagram</a>
+            </p>
+          </div>
+
+          <div class="team-card">
+            <h3>Kshitij Jha</h3>
+            <p><strong>Role:</strong> UI Designer + Programmer</p>
+            <p>
+              Kshitij blends creativity with logic, ensuring every screen looks
+              attractive and functions smoothly, bridging design and
+              development.
+            </p>
+            <p>
+              <a href="https://github.com/kshitijjha">GitHub</a> |
+              <a href="https://linkedin.com/in/kshitijjha">LinkedIn</a> |
+              <a href="https://instagram.com/kshitij_jha">Instagram</a>
+            </p>
+          </div>
+
+          <div class="team-card">
+            <h3>Mrinal Choudhary</h3>
+            <p><strong>Role:</strong> Tester + UI Designer</p>
+            <p>
+              Mrinal ensures that each feature runs flawlessly, helping identify
+              and fix potential issues before deployment while improving design
+              consistency.
+            </p>
+            <p>
+              <a href="https://github.com/mrinalchoudhary">GitHub</a> |
+              <a href="https://linkedin.com/in/mrinalchoudhary">LinkedIn</a> |
+              <a href="https://instagram.com/mrinal_choudhary">Instagram</a>
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 KeyCheeky | Secure. Smart. Simple.</p>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">LinkedIn</a>
+        <a href="#">X</a>
+      </div>
+    </footer>
   </body>
 </html>

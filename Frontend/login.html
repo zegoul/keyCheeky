@@ -1,24 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login | KeyCheeky</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-      <h1>KeyCheeky</h1>
+    <header class="header">
+      <div class="logo">
+        <a href="index.html"
+          ><img src="/keyCheeky/Frontend/Art/logo.png" alt="KeyCheeky Logo"
+        /></a>
+      </div>
+      <h1 class="brand">KeyCheeky</h1>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="signup.html">Sign Up</a>
+      </nav>
     </header>
 
-    <div class="container">
-      <h2>Login</h2>
-      <form action="backend.c" method="POST">
-        <input type="text" placeholder="Username" required /><br />
-        <input type="password" placeholder="Password" required /><br />
-        <button type="submit">Login</button>
-      </form>
-      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
-    </div>
+    <main class="auth-page">
+      <div class="auth-card">
+        <h2>Login to Your Account</h2>
+        <p>Access your secure KeyCheeky password vault.</p>
 
-    <footer>© 2025 KeyCheeky</footer>
+        <form method="post" action="/cgi-bin/backend.cgi">
+          <input type="hidden" name="action" value="login" />
+
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+
+          <button type="submit" class="btn-second">Login</button>
+        </form>
+
+        <p class="redirect-text">
+          Don’t have an account? <a href="signup.html">Sign up here</a>
+        </p>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 KeyCheeky | All Rights Reserved</p>
+    </footer>
   </body>
 </html>
