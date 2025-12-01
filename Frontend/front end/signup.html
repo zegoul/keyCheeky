@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keycheeky - Sign Up</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6; /* light background */
+      color: #111827;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background: #ffffff; /* white card */
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+      padding: 28px 24px 32px;
+      width: 380px;
+      box-sizing: border-box;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+    }
+
+    .logo-area {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+
+    .logo-area img {
+      height: 70px;
+      width: 70px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 5px;
+    }
+
+    .logo-area h1 {
+      margin: 0;
+      font-size: 1.4em;
+      background: linear-gradient(45deg, #22c55e, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .logo-area p {
+      margin-top: 4px;
+      font-size: 0.9em;
+      color: #6b7280;
+    }
+
+    form {
+      margin-top: 8px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9em;
+      margin-bottom: 4px;
+      color: #374151;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e1;
+      background: #f9fafb;
+      color: #111827;
+      box-sizing: border-box;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #22c55e;
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
+      background: #ffffff;
+    }
+
+    .hint {
+      font-size: 0.75em;
+      color: #6b7280;
+      margin-top: -8px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px 0;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 1em;
+      background: linear-gradient(135deg, #22c55e, #8b5cf6);
+      color: white;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      opacity: 0.95;
+    }
+
+    .error {
+      color: #ef4444;
+      font-size: 0.8em;
+      min-height: 16px;
+      margin-top: 4px;
+    }
+
+    .footer-text {
+      text-align: center;
+      margin-top: 14px;
+      font-size: 0.8em;
+      color: #6b7280;
+    }
+
+    .footer-text a {
+      color: #16a34a;
+      text-decoration: none;
+    }
+
+    .footer-text a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="logo-area">
+    <img src="SmallSquareLogoJpg-removebg-preview.jpg" alt="Keycheeky Logo" />
+    <h1>Create your Keycheeky account</h1>
+    <p>Sign up once, secure all your passwords</p>
+  </div>
+
+  <form id="signupForm" onsubmit="return handleSignup(event)">
+    <label for="name">Full Name</label>
+    <input type="text" id="name" placeholder="Your name" required />
+
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="you@example.com" required />
+
+    <label for="password">Password</label>
+    <input type="password" id="password" placeholder="Create a strong password" required />
+
+    <label for="confirm">Confirm Password</label>
+    <input type="password" id="confirm" placeholder="Re-enter password" required />
+
+    <div class="hint">Use at least 8 characters with letters, numbers and symbols.</div>
+    <div id="errorMsg" class="error"></div>
+
+    <button type="submit">Sign Up</button>
+  </form>
+
+  <div class="footer-text">
+    Already have an account?
+    <a href="login.html">Log in</a>
+  </div>
+</div>
+
+<script>
+  function handleSignup(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("confirm").value;
+    const errorMsg = document.getElementById("errorMsg");
+
+    if (!name || !email || !password || !confirm) {
+      errorMsg.textContent = "Please fill in all fields.";
+      return false;
+    }
+
+    if (password.length < 8) {
+      errorMsg.textContent = "Password should be at least 8 characters long.";
+      return false;
+    }
+
+    if (password !== confirm) {
+      errorMsg.textContent = "Passwords do not match.";
+      return false;
+    }
+
+    errorMsg.textContent = "";
+    alert("Sign up successful! Please log in with your new account.");
+    window.location.href = "login.html";
+    return false;
+  }
+</script>
+
+</body>
+</html>

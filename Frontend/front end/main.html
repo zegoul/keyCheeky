@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Keycheeky - Password Manager</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f3f4f6; /* light background */
+      color: #1f2933;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #111827;
+      padding: 10px 30px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+      color: #e0e0e0;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-area img {
+      height: 45px;
+      width: 45px;
+      object-fit: contain;
+    }
+
+    .logo-text {
+      font-size: 1.3em;
+      font-weight: bold;
+      color: #a5ff7f;
+    }
+
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #e5e7eb;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #a5ff7f;
+    }
+
+    .auth {
+      display: flex;
+      gap: 10px;
+    }
+
+    .auth button {
+      background: linear-gradient(135deg, #6d28d9, #10b981);
+      border: none;
+      padding: 7px 16px;
+      cursor: pointer;
+      border-radius: 20px;
+      color: white;
+      font-weight: bold;
+    }
+
+    .auth button:hover {
+      opacity: 0.9;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px 30px;
+    }
+
+    main h1 {
+      font-size: 3em;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #10b981, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    main p {
+      max-width: 650px;
+      font-size: 1.1em;
+      color: #4b5563;
+      margin-bottom: 35px;
+    }
+
+    .hero-highlight {
+      font-weight: bold;
+      color: #16a34a;
+    }
+
+    #about-us {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      padding: 20px;
+    }
+
+    #about-us h2 {
+      color: #16a34a;
+      margin-bottom: 10px;
+    }
+
+    #about-us p {
+      color: #374151;
+      line-height: 1.6;
+    }
+
+    section.team {
+      max-width: 950px;
+      margin: 0 auto 50px;
+      padding: 0 20px 40px;
+    }
+
+    section.team h2 {
+      text-align: center;
+      color: #16a34a;
+      margin-bottom: 25px;
+    }
+
+    .team-members {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .member {
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 170px;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .member h3 {
+      margin-top: 0;
+      margin-bottom: 6px;
+      font-size: 1.05em;
+      color: #16a34a;
+    }
+
+    .member p {
+      margin: 0;
+      font-size: 0.9em;
+      color: #6b7280;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      nav {
+        width: 100%;
+      }
+      nav a {
+        margin-right: 10px;
+      }
+      .auth {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <img src="SmallSquareLogoJpg-removebg-preview.jpg" alt="Keycheeky Logo" />
+    <div class="logo-text">Keycheeky</div>
+  </div>
+
+  <nav>
+    <a href="#about-us">About Us</a>
+  </nav>
+
+  <div class="auth">
+    <!-- Sign Up button opens signup.html -->
+    <button type="button" onclick="window.location.href='signup.html'">
+      Sign Up
+    </button>
+    <!-- Login button opens login.html -->
+    <button type="button" onclick="window.location.href='login.html'">
+      Login
+    </button>
+  </div>
+</header>
+
+<main>
+  <h1>Welcome to Keycheeky</h1>
+  <p>
+    Keep every password locked behind a
+    <span class="hero-highlight">smart, encrypted vault</span>
+    designed to protect your digital identity with secure generation, storage, and access control.
+  </p>
+</main>
+
+<section id="about-us">
+  <h2>About Us</h2>
+  <p>
+    Keycheeky is a modern password manager focused on strong security and a smooth user experience.
+    It uses smart algorithms to create and manage unique, complex passwords so you never have to reuse or remember them again.
+  </p>
+  <p>
+    With a clean interface, encryption-first design, and future-ready features, Keycheeky keeps your online accounts safe while staying easy to use for everyone.
+  </p>
+</section>
+
+<section class="team">
+  <h2>Our Contributors</h2>
+  <div class="team-members">
+    <div class="member">
+      <h3>Lakshay Battu</h3>
+      <p>Role: Programmer + Documentation Lead</p>
+    </div>
+    <div class="member">
+      <h3>Aditya Choudhary</h3>
+      <p>Role: Programmer + Documentation</p>
+    </div>
+    <div class="member">
+      <h3>Kshitij Jha</h3>
+      <p>Role: UI Designer + Programmer</p>
+    </div>
+    <div class="member">
+      <h3>Mohit Aswani</h3>
+      <p>Role: Group Leader + UI Designer</p>
+    </div>
+    <div class="member">
+      <h3>Mrinal Chaudhary</h3>
+      <p>Role: Tester + UI Designer</p>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
