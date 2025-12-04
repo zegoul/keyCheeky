@@ -1,0 +1,3 @@
+Open backend code in ide
+run the main.c file in terminal
+in same terminal type "./keycheeky" to run the main code
