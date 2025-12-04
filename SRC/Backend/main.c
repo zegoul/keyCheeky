@@ -36,7 +36,7 @@ int main(void)
         int c;
         while ((c = getchar()) != '\n' && c != EOF)
         {
-        } // clear input buffer
+        }
 
         if (option == 1)
         {

@@ -8,23 +8,22 @@
 #define STRLEN 50
 #define XOR_KEY 5
 
-/* Credential struct (website + encrypted userid/password) */
-typedef struct {
+typedef struct
+{
     char website[STRLEN];
-    char userid[STRLEN];    /* stored encrypted */
-    char password[STRLEN];  /* stored encrypted */
+    char userid[STRLEN];
+    char password[STRLEN];
 } Credential;
 
-/* User struct: username + encrypted password + their credentials */
-typedef struct {
+typedef struct
+{
     char username[STRLEN];
-    char password[STRLEN];           /* stored encrypted */
+    char password[STRLEN];
     Credential creds[MAX_CREDS_PER_USER];
     int cred_count;
-    int used;                        /* 0 = unused slot, 1 = occupied */
+    int used;
 } User;
 
-/* prototypes */
 void xorEncrypt(char *s);
 void readLine(char *buf, int size);
 
@@ -39,4 +38,4 @@ void showEncrypted(User *u);
 
 void userMenu(User *u);
 
-#endif /* MANAGER_H */
+#endif

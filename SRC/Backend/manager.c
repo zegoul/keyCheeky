@@ -2,7 +2,6 @@
 #include <string.h>
 #include "manager.h"
 
-/* XOR in-place (same function used for encrypt/decrypt) */
 void xorEncrypt(char *s)
 {
     for (int i = 0; s[i] != '\0'; i++)
@@ -11,7 +10,6 @@ void xorEncrypt(char *s)
     }
 }
 
-/* Safe fgets wrapper: reads a line and strips newline */
 void readLine(char *buf, int size)
 {
     if (fgets(buf, size, stdin) != NULL)
@@ -26,7 +24,6 @@ void readLine(char *buf, int size)
     }
 }
 
-/* Find user index by username; returns -1 if not found */
 int findUserIndex(User users[], int user_count, const char *username)
 {
     for (int i = 0; i < user_count; i++)
@@ -37,7 +34,6 @@ int findUserIndex(User users[], int user_count, const char *username)
     return -1;
 }
 
-/* Create a new user; returns index or -1 on failure */
 int signup(User users[], int *user_count)
 {
     if (*user_count >= MAX_USERS)
@@ -72,7 +68,6 @@ int signup(User users[], int *user_count)
         return -1;
     }
 
-    /* find first unused slot */
     int slot = -1;
     for (int i = 0; i < MAX_USERS; i++)
     {
@@ -99,13 +94,11 @@ int signup(User users[], int *user_count)
     users[slot].cred_count = 0;
     users[slot].used = 1;
 
-    /* maintain simple user_count as number of used slots */
     (*user_count)++;
     printf("Signup successful. You can now login as '%s'.\n", username);
     return slot;
 }
 
-/* Attempt login; returns user index on success, -1 on failure */
 int login(User users[], int user_count)
 {
     char username[STRLEN], password[STRLEN];
@@ -122,7 +115,6 @@ int login(User users[], int user_count)
         return -1;
     }
 
-    /* compare encrypted stored password with encrypted input */
     char encrypted_input[STRLEN];
     strncpy(encrypted_input, password, STRLEN);
     encrypted_input[STRLEN - 1] = '\0';
@@ -140,7 +132,6 @@ int login(User users[], int user_count)
     }
 }
 
-/* Add credential to a particular user */
 void addCredential(User *u)
 {
     if (u->cred_count >= MAX_CREDS_PER_USER)
@@ -158,7 +149,6 @@ void addCredential(User *u)
         return;
     }
 
-    /* optional: check duplicate website for same user */
     for (int i = 0; i < u->cred_count; i++)
     {
         if (strcmp(u->creds[i].website, website) == 0)
@@ -173,7 +163,6 @@ void addCredential(User *u)
     printf("Enter password: ");
     readLine(password, STRLEN);
 
-    /* store website plain, store userid/password encrypted */
     Credential *c = &u->creds[u->cred_count];
     strncpy(c->website, website, STRLEN);
     c->website[STRLEN - 1] = '\0';
@@ -190,7 +179,6 @@ void addCredential(User *u)
     printf("Credential for '%s' saved (encrypted).\n", website);
 }
 
-/* List websites of a user */
 void listWebsites(User *u)
 {
     if (u->cred_count == 0)
@@ -205,7 +193,6 @@ void listWebsites(User *u)
     }
 }
 
-/* View (decrypt) credential for a website belonging to user */
 void viewCredential(User *u)
 {
     if (u->cred_count == 0)
@@ -238,13 +225,12 @@ void viewCredential(User *u)
     strncpy(pass, u->creds[found].password, STRLEN);
     pass[STRLEN - 1] = '\0';
 
-    xorEncrypt(uid); /* decrypt copies */
+    xorEncrypt(uid);
     xorEncrypt(pass);
 
     printf("\nWebsite : %s\nUser ID : %s\nPassword: %s\n", u->creds[found].website, uid, pass);
 }
 
-/* Show encrypted entries for debug (belongs to user) */
 void showEncrypted(User *u)
 {
     if (u->cred_count == 0)
@@ -260,7 +246,6 @@ void showEncrypted(User *u)
     }
 }
 
-/* Submenu shown after successful login for a specific user */
 void userMenu(User *u)
 {
     while (1)
@@ -286,7 +271,7 @@ void userMenu(User *u)
         int ch;
         while ((ch = getchar()) != '\n' && ch != EOF)
         {
-        } /* clear newline */
+        }
 
         if (choice == 1)
             addCredential(u);
