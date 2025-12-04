@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Keycheeky — Home</title>
+    <style>
+      :root {
+        --color-primary: #22c55e;
+        --color-accent: #a855f7;
+        --bg-grad: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 0.06),
+          rgba(168, 85, 247, 0.06)
+        );
+        --surface: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --max-width: 1100px;
+        --radius: 12px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial;
+        color: var(--text);
+        background: var(--bg-grad);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Header */
+      header {
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          var(--color-accent)
+        );
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .container {
+        max-width: var(--max-width);
+        margin: 0 auto;
+        width: 100%;
+        padding: 0 20px;
+      }
+      .logo {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+      }
+      .logo img {
+        height: 36px;
+        width: 36px;
+        border-radius: 8px;
+        background: #fff;
+        padding: 4px;
+        object-fit: contain;
+      }
+      nav {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+      }
+      nav a {
+        color: rgba(255, 255, 255, 0.95);
+        text-decoration: none;
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: 600;
+      }
+
+      /* Main layout */
+      main {
+        max-width: var(--max-width);
+        margin: 28px auto;
+        padding: 0 20px;
+        min-height: calc(100vh - 140px);
+      }
+      .hero {
+        background: var(--surface);
+        padding: 32px;
+        border-radius: var(--radius);
+        box-shadow: 0 8px 20px rgba(12, 12, 12, 0.06);
+        border: 1px solid rgba(2, 6, 23, 0.04);
+        text-align: center;
+        margin-bottom: 20px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero h1 {
+        color: var(--color-primary);
+        font-size: 32px;
+        margin-bottom: 8px;
+      }
+      .hero p {
+        color: var(--muted);
+        line-height: 1.6;
+        margin-bottom: 18px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 10px;
+        border: none;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .btn-primary {
+        background: linear-gradient(90deg, var(--color-primary), #16a34a);
+        color: white;
+      }
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 20px;
+      }
+      .card {
+        background: var(--surface);
+        padding: 18px;
+        border-radius: 10px;
+        border: 1px solid rgba(2, 6, 23, 0.04);
+        box-shadow: 0 6px 14px rgba(12, 12, 12, 0.04);
+      }
+      .card h3 {
+        color: var(--color-primary);
+        margin-bottom: 8px;
+      }
+      .small {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      footer {
+        margin-top: 28px;
+        padding: 18px;
+        text-align: center;
+        color: #fff;
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          var(--color-accent)
+        );
+      }
+
+      /* Responsive */
+      @media (max-width: 980px) {
+        .card-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 640px) {
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+        main {
+          padding: 0 12px;
+        }
+        .hero {
+          padding: 20px;
+        }
+        .logo img {
+          height: 30px;
+          width: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div
+        class="container"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        "
+      >
+        <a class="logo" href="index.html" aria-label="Keycheeky home">
+          <img
+            src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/5623b684-54b5-4520-873d-526cb122aace"
+            alt="Keycheeky"
+          />
+          <span>Keycheeky</span>
+        </a>
+
+        <nav>
+          <a href="login.html">Login</a>
+          <a href="signup.html">Sign Up</a>
+          <a href="about.html">About Us</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="welcome-title">
+        <h1 id="welcome-title">Welcome to Keycheeky</h1>
+        <p>
+          KeyCheeky is a lightweight, client-side demo credential manager built
+          to show UI and flows. Use the Login or Sign Up pages to continue.
+          After logging in you'll reach a dashboard where you can store simple
+          credential entries (stored in your browser only).
+        </p>
+        <div>
+          <a href="login.html" class="btn btn-primary" title="Get started"
+            >Get Started &nbsp;→</a
+          >
+        </div>
+      </section>
+
+      <section class="card-grid" aria-label="features">
+        <div class="card">
+          <h3>Demo Storage</h3>
+          <p class="small">
+            Entries are persisted only in your browser using
+            <code>localStorage</code>. This is a demo flow — do not store real
+            secrets here.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Separate Pages</h3>
+          <p class="small">
+            Login, Sign Up and Dashboard are now separate pages so navigation
+            matches a real app structure.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Privacy-first</h3>
+          <p class="small">
+            No external servers are contacted by this demo. All data stays on
+            your machine unless you export it.
+          </p>
+        </div>
+      </section>
+
+      <section
+        style="
+          margin-top: 22px;
+          max-width: 900px;
+          margin-left: auto;
+          margin-right: auto;
+        "
+      >
+        <div class="card">
+          <h3 style="margin-bottom: 10px">How to use (quick)</h3>
+          <ol style="padding-left: 18px; color: var(--muted); line-height: 1.7">
+            <li>Create an account via Sign Up (or use demo user on Login).</li>
+            <li>Login — you'll be redirected to the Dashboard.</li>
+            <li>
+              From Dashboard use "Add password" or "See list" to manage entries.
+            </li>
+          </ol>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2025 Keycheeky — Demo client-only credential manager.
+    </footer>
+  </body>
+</html>

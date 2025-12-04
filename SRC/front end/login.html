@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Keycheeky — Login</title>
+    <style>
+      :root {
+        --primary: #22c55e;
+        --muted: #475569;
+        --surface: #fff;
+        --max-width: 720px;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      body {
+        font-family: Inter, system-ui, Segoe UI, Roboto, Arial;
+        background: linear-gradient(
+          135deg,
+          rgba(34, 197, 94, 0.03),
+          rgba(168, 85, 247, 0.03)
+        );
+        color: #0f172a;
+        min-height: 100vh;
+      }
+      header {
+        background: linear-gradient(90deg, var(--primary), #a855f7);
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        color: #fff;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      .logo {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-weight: 700;
+      }
+      .logo img {
+        height: 34px;
+        width: 34px;
+        border-radius: 8px;
+        background: #fff;
+        padding: 4px;
+        object-fit: contain;
+      }
+      /* CENTERING FIX */
+      main {
+        min-height: calc(
+          100vh - 140px
+        ); /* keeps footer/header space accounted for */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 20px;
+      }
+      .card {
+        background: var(--surface);
+        padding: 28px;
+        border-radius: 14px;
+        border: 1px solid rgba(2, 6, 23, 0.04);
+        box-shadow: 0 12px 30px rgba(12, 12, 12, 0.06);
+        width: 100%;
+        max-width: 720px; /* ensures it never gets too wide */
+      }
+      h2 {
+        color: var(--primary);
+        margin-bottom: 8px;
+      }
+      .field {
+        margin-bottom: 14px;
+      }
+      label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 700;
+      }
+      input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid #e6eef7;
+        font-size: 15px;
+      }
+      .controls {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        margin-top: 10px;
+      }
+      .btn {
+        padding: 12px 16px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        font-weight: 700;
+      }
+      .btn-primary {
+        background: linear-gradient(90deg, var(--primary), #16a34a);
+        color: white;
+      }
+      .small {
+        font-size: 13px;
+        color: var(--muted);
+        margin-top: 12px;
+      }
+      footer {
+        text-align: center;
+        margin-top: 22px;
+        color: #fff;
+        background: linear-gradient(90deg, var(--primary), #a855f7);
+        padding: 14px;
+      }
+      @media (max-width: 640px) {
+        main {
+          padding: 18px;
+        }
+        .card {
+          padding: 20px;
+        }
+        input {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <a class="logo" href="index.html"
+        ><img
+          src="https://agi-prod-file-upload-public-main-use1.s3.amazonaws.com/5623b684-54b5-4520-873d-526cb122aace"
+          alt="KeyCheeky"
+        />Keycheeky</a
+      >
+      <nav>
+        <a
+          href="signup.html"
+          style="color: #fff; text-decoration: none; font-weight: 600"
+          >Sign Up</a
+        >
+      </nav>
+    </header>
+
+    <main>
+      <div class="card" role="form" aria-labelledby="login-title">
+        <h2 id="login-title">Welcome back — Login</h2>
+
+        <div class="field">
+          <label for="email">Email</label
+          ><input id="email" type="email" placeholder="demo@keycheeky.com" />
+        </div>
+        <div class="field">
+          <label for="password">Password</label
+          ><input id="password" type="password" placeholder="DemoPass123" />
+        </div>
+
+        <div class="controls">
+          <button class="btn btn-primary" onclick="login()">Login</button>
+          <button class="btn" onclick="location.href='signup.html'">
+            Create account
+          </button>
+        </div>
+
+        <p id="msg" class="small" style="color: #c0392b"></p>
+        <p class="small" style="margin-top: 10px; color: var(--muted)">
+          Demo credentials: <strong>demo@keycheeky.com</strong> /
+          <strong>DemoPass123</strong>
+        </p>
+      </div>
+    </main>
+
+    <footer>&copy; 2025 Keycheeky — Demo</footer>
+
+    <script>
+      (function bootstrapDemo() {
+        const users = JSON.parse(localStorage.getItem("kc_users") || "[]");
+        if (!users.find((u) => u.email === "demo@keycheeky.com")) {
+          users.push({
+            name: "Demo User",
+            email: "demo@keycheeky.com",
+            password: "DemoPass123",
+          });
+          localStorage.setItem("kc_users", JSON.stringify(users));
+          const pw = JSON.parse(localStorage.getItem("kc_passwords") || "{}");
+          pw["demo@keycheeky.com"] = [
+            {
+              site: "Gmail",
+              username: "demo@gmail.com",
+              password: "gmail-demo-pass",
+              updated: "2025-11-28",
+            },
+            {
+              site: "Facebook",
+              username: "demo@facebook.com",
+              password: "fb-demo-pass",
+              updated: "2025-11-20",
+            },
+          ];
+          localStorage.setItem("kc_passwords", JSON.stringify(pw));
+        }
+      })();
+
+      function setMsg(text, color = "#c0392b") {
+        const el = document.getElementById("msg");
+        el.style.color = color;
+        el.textContent = text;
+      }
+
+      function login() {
+        const email = (document.getElementById("email").value || "")
+          .trim()
+          .toLowerCase();
+        const password = (
+          document.getElementById("password").value || ""
+        ).trim();
+        if (!email || !password) {
+          setMsg("Please fill in both fields.");
+          return;
+        }
+
+        const users = JSON.parse(localStorage.getItem("kc_users") || "[]");
+        const user = users.find(
+          (u) => u.email === email && u.password === password
+        );
+        if (!user) {
+          setMsg("Invalid credentials. Try demo account.");
+          return;
+        }
+
+        localStorage.setItem("kc_current_user", user.email);
+        window.location.href = "dashboard.html";
+      }
+
+      (function prefillEmail() {
+        const params = new URLSearchParams(window.location.search);
+        const email = params.get("prefill");
+        if (email)
+          document.getElementById("email").value = decodeURIComponent(email);
+      })();
+    </script>
+  </body>
+</html>
